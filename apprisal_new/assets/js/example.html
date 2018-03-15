@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jquery.frontbox-1.1 | Example</title>
+    <link rel="stylesheet" href="jquery.frontbox-1.1.css">
+</head>
+
+<body>
+<!-- Buttons -->
+<h1>Afraware FrontBox 1.1</h1>
+<br>
+<button id="alert">Alert Message</button>
+<button id="success">Success Message</button>
+<button id="warning">Warning Message</button>
+<button id="error">Error Message</button>
+<br><br>
+<button id="yes_no">Yes/No Question</button>
+<button id="ok_cancel">OK/Cancel Question</button>
+<button id="retry_ignore_abort">Retry/Ignore/Abort Question</button>
+<br><br>
+<button id="text">Text Prompt</button>
+<button id="select">Select Prompt</button>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="jquery.frontbox-1.1.js"></script>
+<script>
+    $(document).ready(function(){
+        //*********************************************************************************
+        // Normal Message
+        $("#alert").click(function() {
+            (new FrontBox).alert("This is an alert!");
+        });
+        // Success Message
+        $("#success").click(function() {
+            (new FrontBox).success("This is a success!","Title set here");
+        });
+        // Warning Message
+        $("#warning").click(function() {
+            var fb = new FrontBox();
+            fb.warning("This is a warning!");
+        });
+        // Error Message
+        $("#error").click(function() {
+            (new FrontBox).error("This is an error!","Title set here");
+        });
+        //*********************************************************************************
+        // Yes/No Question
+        $("#yes_no").click(function() {
+            (new FrontBox).yes_no("This is yes_no question").callback(function(btn){
+                (new FrontBox).alert("You pressed: " + btn);
+            });
+        });
+        // OK/Cancel Question
+        $("#ok_cancel").click(function() {
+            (new FrontBox).ok_cancel("This is ok_cancel question","Title goes here").callback(function(btn){
+                (new FrontBox).alert("You pressed: " + btn);
+            });
+        });
+        // Retry/Ignore/Abort Question
+        $("#retry_ignore_abort").click(function() {
+            (new FrontBox).retry_ignore_abort("This is retry_ignore_abort question").callback(function(btn){
+                (new FrontBox).alert("You pressed: " + btn);
+            });
+        });
+        //*********************************************************************************
+        // Text Prompt
+        $("#text").click(function() {
+            (new FrontBox).text("This is text prompt","Title here","Optional Placeholder").callback(function(btn, ans){
+                (new FrontBox).alert("You pressed: " + btn);
+                (new FrontBox).alert("You entered: " + ans);
+            });
+        });
+        // Select Prompt
+        $("#select").click(function() {
+            (new FrontBox).selection("This is selection prompt","Title",["a","b","c"],"Optional Placeholder")
+                    .callback(function(btn, ans){
+                (new FrontBox).alert("You pressed: " + btn);
+                (new FrontBox).alert("You selected: " + ans);
+            });
+        });
+    });
+</script>
+<!-- The End -->
+</body>
+
+</html>

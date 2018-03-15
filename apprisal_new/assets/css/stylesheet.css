@@ -1,0 +1,10 @@
+.text-colour
+{
+	color:#1abb9c;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.x_content{
+	min-height: 500px;
+}
