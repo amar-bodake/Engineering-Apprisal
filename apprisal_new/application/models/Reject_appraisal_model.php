@@ -68,8 +68,8 @@ class Reject_appraisal_model extends CI_Model {
                   $mail->SMTPSecure = "ssl";  // prefix for secure protocol to connect to the server
                   $mail->Host       = "smtp.sendgrid.net";      // setting GMail as our SMTP server
                   $mail->Port       = 465;                   // SMTP port to connect to GMail
-                  $mail->Username   = "apikey";  // user email address
-                   $mail->Password   = "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";            // password in GMail
+                  $mail->Username   = "";  // user email address
+                   $mail->Password   = "";            // password in GMail
                   $mail->SetFrom('enggappraisal@sinhgad.edu', 'Teaching Appraisal');  //Who is sending the email
                   $mail->AddReplyTo("enggappraisal@sinhgad.edu","Teaching Appraisal");  //email address that receives the response
                   $mail->Subject    = "Teaching Appraisal | Appraisal Reject";
